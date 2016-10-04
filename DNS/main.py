@@ -1,3 +1,7 @@
+from netfilterqueue import NetfilterQueue
+import iptables
+# Other imports?
+
 def acceptDNSLookup():
     #If (blacklistContains(source IP address)):
         #Drop the request by just returning.
@@ -5,7 +9,7 @@ def acceptDNSLookup():
         #Call (whitelistClient(source IP address)).
         #Return the current web server name resolution to the client.
 
-def acceptTCPConnection():
+def acceptTCPConnection(): # Does this have to be separate for incoming and outgoing messages? Is this separate from sending/receiving messages? 
     #If blacklistContains(source IP address):
         #Drop the request by just returning.
     
@@ -50,3 +54,5 @@ def fluxExternalAddresses():
     #Do something similar to what I have on the NAT/iptables document in Google Drive.
     
 #Do we need anything else?
+    # We will have to work with zone files when setting up our bind9 server.
+    # We will also eventually use netfilterqueue to catch the incoming TCP and/or UDP messages.
