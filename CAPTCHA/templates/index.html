@@ -5,9 +5,13 @@
     <title>Document</title>
 </head>
 <body>
-    <img src="out.png">
-    <form action="post">
-        <input type="text" name="answer">
+    <div>
+      <h>Submit the CAPTCHA to prove you're human:</h>
+    </div>
+    <img src="static/out.png">
+    <form action="{{ url_for('hello_world') }}" method="post">
+        {{form.csrf_token }}
+        <input type="text" name="captcha">
     </form>
 </body>
 </html>
